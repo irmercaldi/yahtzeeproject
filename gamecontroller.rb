@@ -10,52 +10,39 @@ require "pry"
     dice
   end
 
-  def turn
-    #variable for how many rolls up to 3
-    times = 0 #how many rolls
-    dice_hash = Hash.new()
+ @end_roll = []
 
-    if times < 3
-      #show what was rolled
-      p "Here is your roll: " + roll(5).to_s
-      times =+ 1
+    def dice_cup
+      puts "what dice numbers would you like to keep?"
+        keep_dice = gets.chomp.split(/ /).map(&:to_i)
+        keep_dice << roll(5 - keep_dice.length)
+        p keep_dice.flatten
+        
     end
+   
 
-    #after each roll user input for which values to keep - 
-    puts "Roll Agian? Yes or No"
+    @scorecard = []
 
-    again = gets.chomp.downcase
 
-#change to loop
-    if again == "no"
-      # show scorecard from user of what are left options
-      # user input to which box to us (scorecard)
-      # sum of dice
+    puts "Here is your roll: " + roll(5).to_s
 
-    elsif again == "yes"
-      p "what dice numbers would you like to keep?"
-      #take die and convert to hash 
-      keep_dice = gets.chomp
-      p keep_dice.split(" ")
-      # reset dice
-      #manydice = (5 - keep_dice.length)
-      roll(5 - keep_dice.length)
-      times =+ 1
-      binding.pry
-    else
-      p "Opps!"
+    times = 1 
 
+    while times <= 3 do
+      (puts " Roll Agian? Yes or No") unless times == 3
+      (again = gets.chomp.downcase) unless times == 3
+      if again == "no" || times == 3
+        puts "Your score was added to score card!"
+        break
+      elsif again == "yes"
+        dice_cup
+        times += 1
+      else
+        puts "Oops!"
+      end
     end
-      
-test
-
-    # call roll with how many dice to roll
  
-   # save hash 
-       
 
-   #pass hash to scorecard
 
-  end
 
-turn
+
