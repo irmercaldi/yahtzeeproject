@@ -47,7 +47,7 @@ require "pry"
 
     end
       
-
+test
 
     # call roll with how many dice to roll
  
