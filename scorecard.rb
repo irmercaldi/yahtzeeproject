@@ -19,19 +19,7 @@ require "pry"
 p @scorecard
 
 @user_scorecard = [
-  # @aces => 0,
-  # @twos => 0,
-  # @threes => 0,
-  # @fours => 0,
-  # @fives => 0,
-  # @sixes => 0,
-  # @three_of_a_kind => 0,
-  # @four_of_a_kind => 0,
-  # @full_house => 0,
-  # @sm_straight => 0,
-  # @lg_straight => 0,
-  # @yahtzee => 0,
-  # @chance => 0
+
 ]
 
 @results = []
@@ -89,14 +77,7 @@ end
 
 scorecard
 @user_scorecard << @results
-scorecard
-@user_scorecard << @results
-scorecard
-@user_scorecard << @results
 
-@user_scorecard.inject(0){|sum,x| sum + x }
-
-binding.pry
 print @user_scorecard
 
 
